@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
+import { Button } from "react-native-paper";
 
 const HomeScreen = ({ navigation }) => {
   const [titleText, setTitleText] = useState("Dream Flight Journey");
@@ -44,13 +45,16 @@ const HomeScreen = ({ navigation }) => {
             {titleText} {"\n\n"}
           </Text>
           <Button
-            title="Find Itinerary"
+            buttonColor="#414141"
+            mode="contained"
             onPress={() =>
               navigation.navigate("Profile", {
                 name: "PLACEHOLDER",
               })
             }
-          />
+          >
+            Find Itinerary
+          </Button>
         </View>
       </View>
     )
