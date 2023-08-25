@@ -14,3 +14,8 @@ Frontend
 Backend
 - [ ] RabbitMQ - set up message bus
 - [ ] APIs for flight information
+
+## Instructions
+```bash
+npx install react-dom react-native-web
+```
