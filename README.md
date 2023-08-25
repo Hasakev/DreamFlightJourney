@@ -17,5 +17,12 @@ Backend
 
 ## Instructions
 ```bash
-npx install react-dom react-native-web
+npx expo install react-dom react-native-web
+npm i react-native-paper
 ```
+
+To start:(frontend)
+```bash
+npx expo start 
+```
+
