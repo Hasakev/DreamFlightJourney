@@ -1,38 +1,31 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const TextInANest = () => {
-  const [titleText, setTitleText] = useState("Dream Flight Journey");
-  const bodyText = "Your safety is our priority";
-
-  const onPressTitle = () => {
-    setTitleText("Dream Flight Journey");
-  };
-
-  const styles = StyleSheet.create({
-    baseText: {
-      fontFamily: "Cochin",
-    },
-    titleText: {
-      fontSize: 20,
-      fontWeight: "bold",
-    },
-  });
-
-  return (
-    <View>
-      <Text style={styles.baseText}>
-        <Text style={styles.titleText} onPress={onPressTitle}>
-          {titleText}
-          {"\n"}
-          {"\n"}
-        </Text>
-        <Text numberOfLines={5}>{bodyText}</Text>
-      </Text>
-    </View>
-  );
-};
+// Screens
+import ConfirmationScreen from "./pages/confirmation-screen";
+import ProfileScreen from "./pages/profile-screen";
+import HomeScreen from "./pages/home-screen";
+import SearchScreen from "./pages/search-screen";
+import ItineraryScreen from "./pages/itinerary-screen";
+import OptInScreen from "./pages/opt-in-screen";
+import ProblemSolutionScreen from "./pages/problem-solution-screen";
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return <TextInANest />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Search" component={SearchScreen} />
+        <Stack.Screen name="Itinerary" component={ItineraryScreen} />
+        <Stack.Screen name="OptIn" component={OptInScreen} />
+        <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
+        <Stack.Screen
+          name="ProblemSolution"
+          component={ProblemSolutionScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
