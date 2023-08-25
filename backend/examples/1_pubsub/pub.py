@@ -14,4 +14,4 @@ channel.queue_declare(queue='pdfprocess') # Declare a queue
 
 while True:
         channel.basic_publish(exchange='', routing_key='pdfprocess', 
-                              body=input("Send message to cons"))
+                              body=input("Send message to cons: "))
