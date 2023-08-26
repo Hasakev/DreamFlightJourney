@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-const ItineraryScreen = ({ navigation }) => {
+const ItineraryScreen = ({ navigation, route }) => {
   const styles = StyleSheet.create({
     Heading: {
       fontSize: 30,
@@ -17,7 +17,7 @@ const ItineraryScreen = ({ navigation }) => {
 
   return (
     <View style={styles.Container}>
-      <Text style={styles.Heading}>PLACEHOLDER</Text>
+      <Text style={styles.Heading}>{route.params.name}'s Itinerary</Text>
     </View>
   );
 };
