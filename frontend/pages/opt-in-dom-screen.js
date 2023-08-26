@@ -17,7 +17,7 @@ const OptInScreen = ({ navigation }) => {
 
   return (
     <View style={styles.Container}>
-      <Text style={styles.Heading}>PLACEHOLDER</Text>
+      <Text style={styles.Heading}>{route.params.name}'s Itinerary</Text>
     </View>
   );
 };
