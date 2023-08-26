@@ -19,9 +19,9 @@ const StackNavigator = () => {
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="ItineraryDom" component={ItineraryDomScreen} />
+      <Stack.Screen name="Itinerary" component={ItineraryDomScreen} />
       <Stack.Screen name="ItinerarySub" component={ItinerarySubScreen} />
-      <Stack.Screen name="OptInDom" component={OptInDomScreen} />
+      <Stack.Screen name="OptIn" component={OptInDomScreen} />
       <Stack.Screen name="OptInSub" component={OptInSubScreen} />
     </Stack.Navigator>
   );

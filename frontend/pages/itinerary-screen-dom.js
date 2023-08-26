@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
 
 const ItineraryDomScreen = ({ navigation }) => {
   const data = {
@@ -57,48 +58,78 @@ const ItineraryDomScreen = ({ navigation }) => {
 
   const styles = StyleSheet.create({
     container: {
-      padding: 10,
       borderWidth: 1,
       borderColor: "lightgray",
       borderRadius: 5,
       marginBottom: 10,
+      backgroundColor: "#50c3f0",
     },
     label: {
       fontWeight: "bold",
       marginBottom: 5,
     },
+    warningBlock: {
+      backgroundColor: "yellow", // Background color of the container
+      borderRadius: 5, // Rounded corners
+    },
+    warningText: {
+      color: "red", // Text color
+      fontWeight: "bold", // Text weight
+    },
+    main: {
+      flex: 1,
+      backgroundColor: "white",
+    },
+    buttonContainer: {
+      alignItems: "center", // Center the button horizontally
+      paddingBottom: 20, // Add padding at the bottom
+    },
   });
 
   return (
     <>
-      <View style={styles.container}>
-        <Text style={styles.label}>Passenger Name</Text>
-        <Text>{data.passengerName}</Text>
-      </View>
-
-      {data.flightSegments.map((flightSegment, index) => (
-        <View key={index} style={styles.container}>
-          <Text style={styles.label}>Flight Number</Text>
-          <Text>{flightSegment.flightNumber}</Text>
-          <Text>
-            {flightSegment.departureAirportCode}
-            {" -> "}
-            {flightSegment.arrivalAirportCode}
-          </Text>
+      <div style={styles.main}>
+        <View style={styles.container}>
+          <Text style={styles.label}>Passenger Name</Text>
+          <Text>{data.passengerName}</Text>
         </View>
-      ))}
-
-      {/* Conditionally render emergency information */}
-      {data.flightSegments.map((flightSegment, index) => {
-        if (flightSegment.flightNumber === emergencies.flightNumber) {
-          return (
-            <View key={index} style={styles.container}>
-              <Text style={styles.label}>{emergencies.delayReason}</Text>
-            </View>
-          );
-        }
-        return null;
-      })}
+        {data.flightSegments.map((flightSegment, index) => (
+          <View key={index} style={styles.container}>
+            <Text style={styles.label}>
+              Flight Number - {flightSegment.flightNumber}
+            </Text>
+            <Text>
+              {flightSegment.departureAirportCode}
+              {" -> "}
+              {flightSegment.arrivalAirportCode}
+            </Text>
+            <Text>{flightSegment.departureDateTime}</Text>
+          </View>
+        ))}
+        {/* Conditionally render emergency information */}
+        {data.flightSegments.map((flightSegment, index) => {
+          if (flightSegment.flightNumber === emergencies.flightNumber) {
+            return (
+              <View key={index} style={styles.warningBlock}>
+                <Text style={styles.warningText}>
+                  {"Delayed: "}
+                  {emergencies.delayReason}
+                </Text>
+              </View>
+            );
+          }
+        })}
+      </div>
+      <View style={styles.buttonContainer}>
+        <Button
+          buttonColor="#039BE5"
+          textColor="black"
+          mode="contained"
+          onPress={() => navigation.navigate("OptIn")}
+        >
+          Opt In to Notifications
+        </Button>
+      </View>
     </>
   );
 };

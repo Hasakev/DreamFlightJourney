@@ -77,14 +77,6 @@ const SearchScreen = ({ navigation }) => {
             />
           </View>
           <View style={styles.bottomHalf}>
-            <TextInput
-              style={styles.input}
-              keyboardType="numeric"
-              label="Booking Reference"
-              value={bookingText}
-              onChangeText={(bookingText) => setBookingText(bookingText)}
-            />
-
             <Dropdown
               label={"Airlines"}
               mode={"outlined"}
@@ -95,6 +87,13 @@ const SearchScreen = ({ navigation }) => {
               setValue={setAirline}
               list={airlines}
               dropDownStyle={styles.dropdownStyle}
+            />
+            <TextInput
+              style={styles.input}
+              keyboardType="numeric"
+              label="Booking Reference"
+              value={bookingText}
+              onChangeText={(bookingText) => setBookingText(bookingText)}
             />
 
             <TextInput
@@ -117,7 +116,7 @@ const SearchScreen = ({ navigation }) => {
               buttonColor="#fff"
               mode="contained"
               onPress={() =>
-                navigation.navigate("ItineraryDomW", {
+                navigation.navigate("Itinerary", {
                   BookingReference: bookingText,
                   FlightNumber: flightText,
                   SeatNumber: seatText,
