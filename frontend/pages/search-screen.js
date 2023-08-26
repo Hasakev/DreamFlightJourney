@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Button, TextInput, Provider, Surface } from "react-native-paper";
 import Dropdown from "react-native-paper-dropdown";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const airlines = [
   { label: "Air Canada" },
@@ -46,6 +47,8 @@ const SearchScreen = ({ navigation }) => {
       width: 132,
       height: 116,
       borderRadius: 20,
+      marginTop: 70,
+      marginBottom: 70,
     },
     input: {
       borderColor: "white",
@@ -114,7 +117,7 @@ const SearchScreen = ({ navigation }) => {
               buttonColor="#fff"
               mode="contained"
               onPress={() =>
-                navigation.navigate("ItineraryDom", {
+                navigation.navigate("ItineraryDomW", {
                   BookingReference: bookingText,
                   FlightNumber: flightText,
                   SeatNumber: seatText,
