@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import { Button, TextInput, Dropdown } from "react-native-paper";
+import SelectDropdown from "react-native-select-dropdown";
+
+const airlines = ["Air Canada", "Air France", "Air India", "Air New Zealand"];
 
 const SearchScreen = ({ navigation }) => {
   const [text, setText] = useState("");
@@ -38,7 +41,7 @@ const SearchScreen = ({ navigation }) => {
       width: "60%",
       borderWidth: 1,
       borderRadius: 5,
-      margin:10,
+      margin: 10,
     },
   });
   return (
@@ -54,9 +57,41 @@ const SearchScreen = ({ navigation }) => {
 
         <View style={styles.bottomHalf}>
           <TextInput
-            style = {styles.input}
-            keyboardType="email-address"
-            label="Email"
+            style={styles.input}
+            keyboardType="numeric"
+            label="Booking Reference"
+            value={text}
+            onChangeText={(text) => setText(text)}
+          />
+          <SelectDropdown
+            data={airlines}
+            onSelect={(selectedItem, index) => {
+              console.log(selectedItem, index);
+            }}
+            buttonTextAfterSelection={(selectedItem, index) => {
+              // text represented after item is selected
+              // if data array is an array of objects then return selectedItem.property to render after item is selected
+              return selectedItem;
+            }}
+            rowTextForSelection={(item, index) => {
+              // text represented for each item in dropdown
+              // if data array is an array of objects then return item.property to represent item in dropdown
+              return item;
+            }}
+          />
+
+          <TextInput
+            style={styles.input}
+            keyboardType="numeric"
+            label="Flight Number"
+            value={text}
+            onChangeText={(text) => setText(text)}
+          />
+
+          <TextInput
+            style={styles.input}
+            keyboardType="numeric"
+            label="Seat Number"
             value={text}
             onChangeText={(text) => setText(text)}
           />
