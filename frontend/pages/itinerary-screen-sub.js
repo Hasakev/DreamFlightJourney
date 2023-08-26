@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-const ItineraryScreen = ({ navigation }) => {
+const ItinerarySubScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     Heading: {
       fontSize: 30,
@@ -22,4 +22,4 @@ const ItineraryScreen = ({ navigation }) => {
   );
 };
 
-export default ItineraryScreen;
+export default ItinerarySubScreen;

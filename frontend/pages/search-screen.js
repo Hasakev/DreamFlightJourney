@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { Button, TextInput, Dropdown } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 import SelectDropdown from "react-native-select-dropdown";
 
 const airlines = ["Air Canada", "Air France", "Air India", "Air New Zealand"];
@@ -99,7 +99,9 @@ const SearchScreen = ({ navigation }) => {
           <Button
             buttonColor="#414141"
             mode="contained"
-            onPress={() => navigation.navigate("Search")}
+            onPress={() =>
+              navigation.navigate("StackNavigator", { screen: "ItineraryDom" })
+            }
           >
             Search
           </Button>
