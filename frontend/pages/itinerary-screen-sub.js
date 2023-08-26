@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-const ConfirmationScreen = ({ navigation }) => {
+const ItineraryScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     Heading: {
       fontSize: 30,
@@ -22,4 +22,4 @@ const ConfirmationScreen = ({ navigation }) => {
   );
 };
 
-export default ConfirmationScreen;
+export default ItineraryScreen;

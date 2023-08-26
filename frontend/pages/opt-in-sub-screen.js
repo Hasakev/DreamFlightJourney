@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-const ProblemSolutionScreen = ({ navigation }) => {
+const OptInScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     Heading: {
       fontSize: 30,
@@ -22,4 +22,4 @@ const ProblemSolutionScreen = ({ navigation }) => {
   );
 };
 
-export default ProblemSolutionScreen;
+export default OptInScreen;

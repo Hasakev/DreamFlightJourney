@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     console.log("HomeScreen.js: HomeScreen()"),
     (
-      <View style={{ flex: 1 }}>
+      <>
         <View style={styles.topHalf}>
           <Image
             style={styles.logo}
@@ -56,7 +56,7 @@ const HomeScreen = ({ navigation }) => {
             Find Itinerary
           </Button>
         </View>
-      </View>
+      </>
     )
   );
 };
