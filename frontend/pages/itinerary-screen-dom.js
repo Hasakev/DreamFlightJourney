@@ -54,6 +54,7 @@ const ItineraryDomScreen = ({ navigation }) => {
     delayReason: "Weather conditions",
     newDepartureDateTime: "2023-09-15 10:30 AM",
   };
+
   const styles = StyleSheet.create({
     container: {
       padding: 10,
@@ -67,12 +68,38 @@ const ItineraryDomScreen = ({ navigation }) => {
       marginBottom: 5,
     },
   });
+
   return (
-    // <View style={styles.container}>
-    //   <Text style={styles.label}>Passenger Name</Text>
-    //   <Text>{data.passengerName}</Text>
-    // </View>
-    console.log("Hello")
+    <>
+      <View style={styles.container}>
+        <Text style={styles.label}>Passenger Name</Text>
+        <Text>{data.passengerName}</Text>
+      </View>
+
+      {data.flightSegments.map((flightSegment, index) => (
+        <View key={index} style={styles.container}>
+          <Text style={styles.label}>Flight Number</Text>
+          <Text>{flightSegment.flightNumber}</Text>
+          <Text>
+            {flightSegment.departureAirportCode}
+            {" -> "}
+            {flightSegment.arrivalAirportCode}
+          </Text>
+        </View>
+      ))}
+
+      {/* Conditionally render emergency information */}
+      {data.flightSegments.map((flightSegment, index) => {
+        if (flightSegment.flightNumber === emergencies.flightNumber) {
+          return (
+            <View key={index} style={styles.container}>
+              <Text style={styles.label}>{emergencies.delayReason}</Text>
+            </View>
+          );
+        }
+        return null;
+      })}
+    </>
   );
 };
 

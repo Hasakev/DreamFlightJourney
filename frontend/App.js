@@ -48,7 +48,7 @@ const TabNavigator = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <StackNavigator />
     </NavigationContainer>
   );
 };

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { Button, TextInput, Provider, Surface} from "react-native-paper";
+import { Button, TextInput, Provider, Surface } from "react-native-paper";
 import Dropdown from "react-native-paper-dropdown";
 
 const airlines = [
-  {label:"Air Canada"}, 
-  {label:"Air France"}, 
-  {label:"Air India"}, 
-  {label:"Air New Zealand"}];
+  { label: "Air Canada" },
+  { label: "Air France" },
+  { label: "Air India" },
+  { label: "Air New Zealand" },
+];
 
 const SearchScreen = ({ navigation }) => {
   const [flightText, setFlightText] = useState("");
@@ -15,7 +16,6 @@ const SearchScreen = ({ navigation }) => {
   const [seatText, setSeatText] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
   const [airline, setAirline] = useState("");
-
 
   const styles = StyleSheet.create({
     Heading: {
@@ -65,61 +65,67 @@ const SearchScreen = ({ navigation }) => {
   return (
     console.log("Search"),
     (
-      <Provider >
-      <View style={{ flex: 1 }}>
-        <View style={styles.topHalf}>
-          <Image
-            style={styles.logo}
-            source={require("../assets/placeholder.png")}
-          />
+      <Provider>
+        <View style={{ flex: 1 }}>
+          <View style={styles.topHalf}>
+            <Image
+              style={styles.logo}
+              source={require("../assets/placeholder.png")}
+            />
+          </View>
+          <View style={styles.bottomHalf}>
+            <TextInput
+              style={styles.input}
+              keyboardType="numeric"
+              label="Booking Reference"
+              value={bookingText}
+              onChangeText={(bookingText) => setBookingText(bookingText)}
+            />
+
+            <Dropdown
+              label={"Airlines"}
+              mode={"outlined"}
+              visible={showDropDown}
+              showDropDown={() => setShowDropDown(true)}
+              onDismiss={() => setShowDropDown(false)}
+              value={airline}
+              setValue={setAirline}
+              list={airlines}
+              dropDownStyle={styles.dropdownStyle}
+            />
+
+            <TextInput
+              style={styles.input}
+              keyboardType="numeric"
+              label="Flight Number"
+              value={flightText}
+              onChangeText={(text) => setFlightText(text)}
+            />
+
+            <TextInput
+              style={styles.input}
+              keyboardType="numeric"
+              label="Seat Number"
+              value={seatText}
+              onChangeText={(text) => setSeatText(text)}
+            />
+
+            <Button
+              buttonColor="#fff"
+              mode="contained"
+              onPress={() =>
+                navigation.navigate("ItineraryDom", {
+                  BookingReference: bookingText,
+                  FlightNumber: flightText,
+                  SeatNumber: seatText,
+                  Airline: airline,
+                })
+              }
+            >
+              Search
+            </Button>
+          </View>
         </View>
-        <View style={styles.bottomHalf}>
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            label="Booking Reference"
-            value={bookingText}
-            onChangeText={(bookingText) => setBookingText(bookingText)}
-          />
-          
-          <Dropdown
-            label = {"Airlines"}
-            mode = {"outlined"}
-            visible={showDropDown}
-            showDropDown={() => setShowDropDown(true)}
-            onDismiss={()=> setShowDropDown(false)}
-            value = {airline}
-            setValue={setAirline}
-            list = {airlines}
-            dropDownStyle={styles.dropdownStyle}
-          />
-
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            label="Flight Number"
-            value={flightText}
-            onChangeText={(text) => setFlightText(text)}
-          />
-
-          <TextInput
-            style={styles.input}
-            keyboardType="numeric"
-            label="Seat Number"
-            value={seatText}
-            onChangeText={(text) => setSeatText(text)}
-          />
-
-          <Button
-            buttonColor="#fff"
-            mode="contained"
-            onPress={() => navigation.navigate("Search")}
-          >
-            Search
-          </Button>
-
-        </View>
-      </View>
       </Provider>
     )
   );
