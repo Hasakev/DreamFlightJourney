@@ -112,7 +112,8 @@ const ItineraryDomScreen = ({ navigation }) => {
             return (
               <View key={index} style={styles.warningBlock}>
                 <Text style={styles.warningText}>
-                  {"Delayed: "}
+                  {flightSegment.flightNumber}
+                  {" Delayed: "}
                   {emergencies.delayReason}
                 </Text>
               </View>
