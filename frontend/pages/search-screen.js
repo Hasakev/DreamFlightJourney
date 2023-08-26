@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {StyleSheet, Text, View , Image} from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 
 const SearchScreen = ({ navigation }) => {
@@ -22,50 +22,45 @@ const SearchScreen = ({ navigation }) => {
       alignItems: "center",
     },
     bottomHalf: {
-      flex: 3,
+      flex: 2,
       backgroundColor: "#50c3f0",
       justifyContent: "center",
       alignItems: "center",
     },
     logo: {
-      resizeMode:'cover',
+      resizeMode: "cover",
       width: 132,
       height: 116,
       borderRadius: 20,
     },
   });
-  return (console.log("Search"),
+  return (
+    console.log("Search"),
     (
-    <View style = {{ flex: 1}}>
-      <View style={styles.topHalf}>
-      <Image
-          style={styles.logo}
-          source={require("../assets/placeholder.png")}
-        />
-      </View>
+      <View style={{ flex: 1 }}>
+        <View style={styles.topHalf}>
+          <Image
+            style={styles.logo}
+            source={require("../assets/placeholder.png")}
+          />
+        </View>
 
-      <View style = {styles.bottomHalf}>
-      
+        <View style={styles.bottomHalf}>
           <TextInput
             label="Email"
             value={text}
-            onChangeText={text => setText(text)}
+            onChangeText={(text) => setText(text)}
           />
-        
-    
-      <Button
+
+          <Button
             buttonColor="#414141"
             mode="contained"
-            onPress={() =>
-              navigation.navigate("Search")
-            }
-        > 
-          Search
-        </Button>
-
+            onPress={() => navigation.navigate("Search")}
+          >
+            Search
+          </Button>
+        </View>
       </View>
-    
-    </View>
     )
   );
 };
