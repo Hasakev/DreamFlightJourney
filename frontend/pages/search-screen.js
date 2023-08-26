@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Button, TextInput, Provider, Surface} from "react-native-paper";
 import Dropdown from "react-native-paper-dropdown";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const airlines = [
   {label:"Air Canada"}, 
@@ -46,6 +47,8 @@ const SearchScreen = ({ navigation }) => {
       width: 132,
       height: 116,
       borderRadius: 20,
+      marginTop: 70,
+      marginBottom: 70,
     },
     input: {
       borderColor: "white",
@@ -66,7 +69,12 @@ const SearchScreen = ({ navigation }) => {
     console.log("Search"),
     (
       <Provider >
-      <View style={{ flex: 1 }}>
+      <KeyboardAwareScrollView
+      style={{ backgroundColor: '#50c3f0' }}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.container}
+      scrollEnabled={true}
+      >
         <View style={styles.topHalf}>
           <Image
             style={styles.logo}
@@ -119,7 +127,7 @@ const SearchScreen = ({ navigation }) => {
           </Button>
 
         </View>
-      </View>
+      </KeyboardAwareScrollView>
       </Provider>
     )
   );
