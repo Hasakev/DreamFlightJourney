@@ -33,6 +33,13 @@ const SearchScreen = ({ navigation }) => {
       height: 116,
       borderRadius: 20,
     },
+    input: {
+      borderColor: "white",
+      width: "60%",
+      borderWidth: 1,
+      borderRadius: 5,
+      margin:10,
+    },
   });
   return (
     console.log("Search"),
@@ -47,6 +54,8 @@ const SearchScreen = ({ navigation }) => {
 
         <View style={styles.bottomHalf}>
           <TextInput
+            style = {styles.input}
+            keyboardType="email-address"
             label="Email"
             value={text}
             onChangeText={(text) => setText(text)}
