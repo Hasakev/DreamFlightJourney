@@ -3,9 +3,9 @@
 TODO:
 
 Frontend
-- [ ] Create new plan
-- [ ] View new plan
-- [ ] INFO mailbox
+- [x] Create new plan
+- [x] View new plan
+- [x] INFO mailbox
 - [ ] Graphical + Textual representation of plane, attention markers that prioritise view
 - [ ] Boarding Gates
 - [ ] Set user flight info storage
@@ -18,7 +18,7 @@ Backend
 ## Instructions
 ```bash
 npx expo install react-dom react-native-web
-npm i react-native-paper
+npm install
 ```
 
 To start:(frontend)
