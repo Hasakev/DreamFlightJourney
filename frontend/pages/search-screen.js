@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {StyleSheet, Text, View , Image} from "react-native";
+import { Button } from "react-native-paper";
 
 const SearchScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -13,12 +14,50 @@ const SearchScreen = ({ navigation }) => {
       alignItems: "center",
       justifyContent: "center",
     },
+    topHalf: {
+      flex: 1,
+      backgroundColor: "#50c3f0",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    bottomHalf: {
+      flex: 3,
+      backgroundColor: "#50c3f0",
+      justifyContent: "start",
+      alignItems: "center",
+    },
+    logo: {
+      resizeMode:'cover',
+      width: 132,
+      height: 116,
+      borderRadius: 20
+    },
   });
 
-  return (
-    <View style={styles.Container}>
-      <Text style={styles.Heading}>PLACEHOLDER</Text>
+  return (console.log("Search"),
+    (
+    <View style = {{ flex: 1}}>
+      <View style={styles.topHalf}>
+      <Image
+          style={styles.logo}
+          source={require("../assets/placeholder.png")}
+        />
+      </View>
+      <View style = {styles.bottomHalf}>
+      <Button
+            buttonColor="#414141"
+            mode="contained"
+            onPress={() =>
+              navigation.navigate("Search")
+            }
+        > 
+          Search
+        </Button>
+
+      </View>
+    
     </View>
+    )
   );
 };
 
