@@ -25,8 +25,10 @@ const HomeScreen = ({ navigation }) => {
       alignItems: "center",
     },
     logo: {
-      width: 132,
-      height: 116,
+      resizeMode: "cover",
+      width: 212,
+      height: 196,
+      borderRadius: 20,
     },
   });
 
@@ -47,11 +49,7 @@ const HomeScreen = ({ navigation }) => {
           <Button
             buttonColor="#414141"
             mode="contained"
-            onPress={() =>
-              navigation.navigate("Search", {
-                name: "PLACEHOLDER",
-              })
-            }
+            onPress={() => navigation.navigate("Search")}
           >
             Find Itinerary
           </Button>
