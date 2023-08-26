@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import {StyleSheet, Text, View , Image} from "react-native";
-import { Button } from "react-native-paper";
+import { Button, TextInput } from "react-native-paper";
 
 const SearchScreen = ({ navigation }) => {
+  const [text, setText] = useState("");
   const styles = StyleSheet.create({
     Heading: {
       fontSize: 30,
@@ -23,17 +24,16 @@ const SearchScreen = ({ navigation }) => {
     bottomHalf: {
       flex: 3,
       backgroundColor: "#50c3f0",
-      justifyContent: "start",
+      justifyContent: "center",
       alignItems: "center",
     },
     logo: {
       resizeMode:'cover',
       width: 132,
       height: 116,
-      borderRadius: 20
+      borderRadius: 20,
     },
   });
-
   return (console.log("Search"),
     (
     <View style = {{ flex: 1}}>
@@ -43,7 +43,16 @@ const SearchScreen = ({ navigation }) => {
           source={require("../assets/placeholder.png")}
         />
       </View>
+
       <View style = {styles.bottomHalf}>
+      
+          <TextInput
+            label="Email"
+            value={text}
+            onChangeText={text => setText(text)}
+          />
+        
+    
       <Button
             buttonColor="#414141"
             mode="contained"
