@@ -48,7 +48,7 @@ const HomeScreen = ({ navigation }) => {
             buttonColor="#414141"
             mode="contained"
             onPress={() =>
-              navigation.navigate("Profile", {
+              navigation.navigate("Search", {
                 name: "PLACEHOLDER",
               })
             }
