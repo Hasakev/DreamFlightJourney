@@ -27,21 +27,28 @@ const StackNavigator = () => {
   );
 };
 
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: true }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{ headerShown: true }}
+      />
+      {/* ... other tab screens ... */}
+    </Tab.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen
-          name="Home"
-          component={StackNavigator}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Search"
-          component={SearchScreen}
-          options={{ headerShown: false }}
-        />
-      </Tab.Navigator>
+      <TabNavigator />
     </NavigationContainer>
   );
 };
