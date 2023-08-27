@@ -56,17 +56,6 @@ const ItineraryDomScreen = ({ navigation }) => {
     newDepartureDateTime: "2023-09-15 10:30 AM",
   };
 
-<<<<<<< HEAD
-const Data = {
-  kevin: true,
-  richie: 9999
-
-}
-const ItineraryScreen = ({ navigation, route }) => {
-
-
-=======
->>>>>>> 2026665e4f55072e3d5f0782b42dc8587d18d5e7
   const styles = StyleSheet.create({
     container: {
       borderWidth: 1,
