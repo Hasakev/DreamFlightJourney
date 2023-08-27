@@ -94,10 +94,6 @@ const ItineraryDomScreen = ({ navigation }) => {
 
   return (
     <>
-<<<<<<< HEAD
-      <View style={styles.topHalf} >
-        <Text style={styles.Heading}>{route.params.name}'s Itinerary</Text>
-=======
       <div style={styles.main}>
         <View style={styles.container}>
           <Text style={styles.label}>Passenger Name</Text>
@@ -140,14 +136,9 @@ const ItineraryDomScreen = ({ navigation }) => {
         >
           Opt In to Notifications
         </Button>
->>>>>>> 2026665e4f55072e3d5f0782b42dc8587d18d5e7
       </View>
     </>
   );
 };
 
-<<<<<<< HEAD
-export default {ItineraryScreen, Data};
-=======
 export default ItineraryDomScreen;
->>>>>>> 2026665e4f55072e3d5f0782b42dc8587d18d5e7
