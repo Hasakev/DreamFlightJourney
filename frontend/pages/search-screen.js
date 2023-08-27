@@ -57,7 +57,7 @@ const SearchScreen = ({ navigation }) => {
             buttonColor="#414141"
             mode="contained"
             onPress={() =>
-              navigation.navigate("Search")
+              navigation.navigate("ItineraryDom", {name: "Mashanm Siddiqudaspo"})
             }
         > 
           Search
